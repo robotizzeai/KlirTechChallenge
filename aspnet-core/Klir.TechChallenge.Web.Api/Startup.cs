@@ -1,3 +1,8 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using AutoMapper;
+using Klir.TechChallenge.Web.Api.Mapping;
+using Klir.TechChallenge.Web.Api.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +21,7 @@ namespace KlirTechChallenge.Web.Api
     public class Startup
     {
         readonly string AllowSpecificOrigins = "_allowSpecificOrigins";
+        public Autofac.IContainer Container { get; private set; }
 
         public Startup(IConfiguration configuration)
         {
@@ -22,6 +29,7 @@ namespace KlirTechChallenge.Web.Api
         }
 
         public IConfiguration Configuration { get; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -31,11 +39,25 @@ namespace KlirTechChallenge.Web.Api
                 options.AddPolicy(name: AllowSpecificOrigins,
                                   builder =>
                                   {
-                                      builder.WithOrigins("http://localhost:4200");
+                                      builder.AllowAnyOrigin()
+                                      .AllowAnyHeader()
+                                      .AllowAnyMethod();
                                   });
             });
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddControllers();
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new ServicesModule());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
