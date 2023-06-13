@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr class="added-product-grid">
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="added-product-card" *ngFor="let item of cartItems">
+      <td>{{ item.productName }}</td>
+      <td>{{ item.productPrice | currency:'EUR' }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.productPrice * item.quantity | currency:'EUR' }}</td>
+    </tr>
+  </tbody>
+</table>

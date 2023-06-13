@@ -1,0 +1,12 @@
+ <table>
+    <tfoot>
+      <tr>
+        <td class="cart-label"colspan="4">Discount: </td>
+        <td class="cart-discount"> {{ totalDiscount | currency:'EUR' }}</td>
+      </tr>
+      <tr>
+        <td class="cart-label"colspan="4">Total: </td>
+        <td class="cart-total"> {{ totalPrice | currency:'EUR'}}</td>
+      </tr>
+    </tfoot>
+  </table>

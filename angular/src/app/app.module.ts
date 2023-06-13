@@ -8,12 +8,14 @@ import { ShoppingCartComponent } from './cart/shopping-cart/shopping-cart.compon
 import { ProductService } from './shared/services/product.service';
 import { CartService } from './shared/services/cart.service';
 import { SharedService } from './shared/services/shared.service';
+import { AddedProductsComponent } from './cart/added-products/added-products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    AddedProductsComponent
   ],
   imports: [
     BrowserModule,

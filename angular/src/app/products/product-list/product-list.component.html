@@ -1,0 +1,13 @@
+<div class="product-list">
+  <div class="product" *ngFor="let product of products">
+    <div class="product-item">
+      <h3>{{ product.name }}</h3>
+      <p>Price: {{ product.price | currency:'EUR' }}</p>
+      <p>Promotion: {{ product.promotion.name }}</p>
+    </div>
+    <div class="quantity-controls">
+      <button class="btn" id="btn-add-to-cart" (click)="onRemoveProductFromCart(product.id)">-</button>
+      <button class="btn" id="btn-add-to-cart" (click)="onAddProductToCart(product.id)">+</button>
+    </div>
+  </div>
+</div>

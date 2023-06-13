@@ -14,7 +14,7 @@ body {
   align-items: flex-start;
 }
 
-.product-list, .cart {
+.cart {
   width: 45%;
   padding: 20px;
   background-color: #fff;
@@ -22,7 +22,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.product-item, .cart-item {
+.cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,6 +32,7 @@ body {
 
 .product-item:last-child, .cart-item:last-child {
   border-bottom: none;
+  border: #0056b3;
 }
 
 .product-name, .cart-product-name {
@@ -51,6 +52,7 @@ body {
   text-decoration: none;
   text-align: center;
   display: inline-block;
+  margin: 10px;
 }
 
 .btn:hover {
@@ -60,5 +62,101 @@ body {
 .cart-total {
   text-align: right;
   font-weight: bold;
+  font-size: 1.5em;
+  color: #007bff;
   margin-top: 20px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.product-item {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 250;
+  width: 250;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+/* Product Image */
+.product-image {
+  width: 100%;
+  height: 200px;
+  background: #ddd;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Product Details */
+.product-details {
+  padding: 15px;
+}
+
+.product-name, .cart-label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.product-price {
+  color: #007bff;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.btn-add-to-cart {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-add-to-cart:hover {
+  background-color: #0056b3;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+.container {
+  color: #444;
+}
+
+.product-item, .cart-item, .btn {
+  transition: background-color 0.3s ease;
+}
+
+.product-item:hover, .btn:hover {
+  background-color: #f0f0f0;
+}
+
+.product-price, .cart-product-price {
+  color: #007bff;
+}
+
+.cart-discount {
+  color: #ff5722;
+  margin-top: 20px;
+}
+
+.cart-total {
+  color: green;
+}
+
+.btn-add-to-cart::before {
+  content: "\f07a";
+  font-family: "Font Awesome 5 Free";
+  padding-right: 5px;
 }

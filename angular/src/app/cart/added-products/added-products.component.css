@@ -1,0 +1,13 @@
+.added-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.added-product-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 25px;
+  text-align: center;
+  margin-left: 15px;
+}
