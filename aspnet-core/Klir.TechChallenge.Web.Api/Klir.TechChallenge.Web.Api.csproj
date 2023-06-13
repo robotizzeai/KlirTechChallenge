@@ -11,5 +11,13 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="C:\Users\scarn\Downloads\KlirTechChallenge-V5\KlirTechChallenge\aspnet-core\Klir.TechChallenge.Web.Api\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\scarn\Downloads\KlirTechChallenge-V5\KlirTechChallenge\aspnet-core\Klir.TechChallenge.Web.Api\.editorconfig" />
+  </ItemGroup>
+
 
 </Project>
